@@ -6,17 +6,78 @@
    </head>
   
   
-  <body>
-    <form action="https://send.pageclip.co/6f9yFa1v1SKHOK6xqjbaO7EB535fgjIK" class="pageclip-form" method="post">
-  <!-- Replace these inputs with your own. Make sure they have a "name" attribute! -->
-  <input type="text" name="name" value="Roscoe Jones" />
-  <input type="email" name="email" value="roscoe@example.com" />
+ <form action="https://send.pageclip.co/{yourSiteKey}/{formName}" className="pageclip-form" method="post">
 
-  <!-- This button will have a loading spinner. Keep the inner span for best results. -->
-  <button type="submit" class="pageclip-form__submit">
-    <span>Send</span>
+  <!-- text field -->
+  <input type="email" name="email" value="bob@omg.com"/>
+
+  <select name="heardFrom">
+    <option value="ph" selected>Product Hunt</option>
+    <option value="hn">Hacker News</option>
+  </select>
+
+  <!-- radio buttons -->
+  <input type="radio" name="animal" value="tarantula" id="tarantula" checked/>
+  <label htmlFor="tarantula">Tarantula</label>
+
+  <input type="radio" name="animal" value="turtle" id="turtle"/>
+  <label htmlFor="turtle">Turtle</label>
+
+  <!-- checkboxes -->
+  <input type="checkbox" name="likes[pizza]" id="pizza" checked/>
+  <label htmlFor="pizza">Pizza 🍕</label>
+
+  <input type="checkbox" name="likes[yams]" id="yams"/>
+  <label htmlFor="yams">Sweet Potatos 🍠</label>
+
+  <!-- hidden inputs -->
+  <input type="hidden" name="version" value="v1" />
+  <button class="pageclip-form__submit" type="button">
+    <span>Submit</span>
   </button>
 </form>
+  <form action="https://send.pageclip.co/{yourSiteKey}/{formName}" className="pageclip-form" method="post">
+
+  <!-- This will be used in the email's reply-to field. Must have name="email" -->
+  <input type="email" name="email" value="bob@omg.com"/>
+
+  <!-- This will be used in the email's subject. Must have name="subject" -->
+  <input type="text" name="subject" value="Email subject"/>
+
+  <textarea name="body">Email body</textarea>
+
+  <button class="pageclip-form__submit" type="button">
+    <span>Submit</span>
+  </button>
+</form>
+  
+  <form method="post" action="https://send.pageclip.co/{yourSiteKey}">
+  <input type="text" name="name" value="Billy Jean"/>
+  <input type="text" name="email" value="billy@example.com"/>
+  <input type="submit" value="Send">
+</form>
+  <form>
+  ...
+  <button class="button pageclip-form__submit" type="submit">
+    <span>Submit</span>
+  </button>
+</form>
+  <!-- Note the `required` attributes in inputs! -->
+<form method="post" action="https://send.pageclip.co/{yourSiteKey}">
+  <input type="text" name="name" required />
+  <input type="text" name="email" required />
+  <input type="submit" value="Send">
+</form>
+  var data = {
+  name: 'Billy Jean',
+  email: 'billy@example.com'
+}
+Pageclip.send('...yourSiteKey...', 'contact', data, function (error, response) {
+  console.log('saved?', !!error, '; response:', error || response)
+})
+
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+    
       <h1> como esta </h1>
     </body>
   
